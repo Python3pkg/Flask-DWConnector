@@ -1,0 +1,5 @@
+.pypirc
+*.pyc
+.sync/*
+Flask_DWConnector.egg-info/*
+dist/*
