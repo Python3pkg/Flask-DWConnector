@@ -121,13 +121,13 @@ class DWConnector(object):
             current_app.logger.error(response.content)
             raise Exception(response.content)
 
-    def reSyncOrdersChain(self, _id):
+    def reSyncOrdersChain(self, _id, feApp):
         requestPath = '/control/taskcmd/resyncorderschain'
         requestUrl = current_app.config['DWRESTENDPOINT'] + requestPath
         response = requests.put(
                                     requestUrl,
                                     headers=self.headers,
-                                    data=json.dumps({"_id": _id}, ensure_ascii=False),
+                                    data=json.dumps({"_id": _id, "feApp": feApp}, ensure_ascii=False),
                                     timeout=60,
                                     verify=True
                                 )
